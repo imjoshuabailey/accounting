@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<h1>Login</h1>
+
+<%= form_with(local: true) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :user_name %>
+  </div>
+
+	<div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit' %>
+  </div>
+
+	<p>New user? <%= link_to 'Sign up now!', 'users/new' %>
+<% end %>

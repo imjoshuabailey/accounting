@@ -1,0 +1,42 @@
+<%= form_with(model: [@account, transaction], local: false) do |form| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+		<%= form.hidden_field :user_id, :value => session[:current_user_id] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :account_id %>
+		<%= @account.number %>
+    <%= form.hidden_field :account_id, :value => @account %>
+  </div>
+
+	<div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :transaction_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit %>
+    <%= number_to_currency(form.number_field :credit, id: :transaction_credit, step: 0.01) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :debit %>
+    <%= number_to_currency(form.number_field :debit, id: :transaction_debit, step: 0.01) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

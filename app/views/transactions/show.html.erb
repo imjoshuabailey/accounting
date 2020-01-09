@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Account:</strong>
+  <%= @transaction.account.number %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @transaction.description %>
+</p>
+
+
+<p>
+  <strong>Credit:</strong>
+  <%= number_to_currency(@transaction.credit) %>
+</p>
+
+<p>
+  <strong>Debit:</strong>
+  <%= number_to_currency(@transaction.debit) %>
+</p>
+
+<%= link_to 'Edit', edit_account_transaction_path(@account, @transaction) %> |
+<%= link_to 'Back', @account %>

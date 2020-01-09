@@ -1,0 +1,5 @@
+users - name, Password, created at, updated at
+accounts - number, **balance, created at, updated at
+transactions - description, user_id, account_id, credit, debit
+
+rails column for money
